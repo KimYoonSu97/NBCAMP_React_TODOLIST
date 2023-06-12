@@ -21,17 +21,15 @@ function App() {
     return;
   }
 
-  function CardDraw({ list, Children }) {
-    console.log(list);
-    console.log(Children);
+  function CardDraw({ list, children }) {
     return list.map((item) => {
       return (
-        <div className="workingCard" key={item.id}>
+        <div className={children.cardClass} key={item.id}>
           <p className="title">{item.subject}</p>
           <p className="detail">{item.detail}</p>
           <div className="btnArea">
             <button className="delete">Delete</button>
-            <button className="done">Done</button>
+            <button className={children.btnClass}>{children.btnClass}</button>
           </div>
         </div>
       );
@@ -59,7 +57,9 @@ function App() {
         <p className="title">Working...🔥</p>
         <div className="content">
           {/* 내부에 map으로 돌리기 */}
-          <CardDraw list={workingList}>abc</CardDraw>
+          <CardDraw list={workingList}>
+            {{ cardClass: "workingCard", btnClass: "done" }}
+          </CardDraw>
         </div>
       </section>
 
@@ -67,18 +67,9 @@ function App() {
         <p className="title">done...🔥</p>
         <div className="content">
           {/* 내부에 map으로 돌리기 */}
-          {doneList.map((item) => {
-            return (
-              <div className="doneCard" key={item.id}>
-                <p className="title">{item.subject}</p>
-                <p className="detail">{item.detail}</p>
-                <div className="btnArea">
-                  <button className="delete">Delete</button>
-                  <button className="cancel">Cancel</button>
-                </div>
-              </div>
-            );
-          })}
+          <CardDraw list={doneList}>
+            {{ cardClass: "doneCard", btnClass: "cancel" }}
+          </CardDraw>
         </div>
       </section>
     </div>
