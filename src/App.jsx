@@ -2,6 +2,42 @@ import { Children, useState } from "react";
 import "./App.css";
 
 function App() {
+  let workarr = [
+    { id: 1, subject: "제목넣어라", detail: "디테일한 할일을 넣어라" },
+    { id: 2, subject: "제목2넣어라", detail: "디테일한 할일2을 넣어라" },
+    { id: 3, subject: "제목3넣어라", detail: "디테일한 할일3을 넣어라" },
+  ];
+
+  let donearr = [
+    { id: 4, subject: "제목넣어라", detail: "디테일한 할일을 넣어라" },
+    { id: 5, subject: "제목2넣어라", detail: "디테일한 할일2을 넣어라" },
+    { id: 6, subject: "제목3넣어라", detail: "디테일한 할일3을 넣어라" },
+  ];
+
+  const [workingList, setWorkingList] = useState(workarr);
+  const [doneList, setDoneList] = useState(donearr);
+
+  function addWorkList() {
+    return;
+  }
+
+  function CardDraw({ list, Children }) {
+    console.log(list);
+    console.log(Children);
+    return list.map((item) => {
+      return (
+        <div className="workingCard" key={item.id}>
+          <p className="title">{item.subject}</p>
+          <p className="detail">{item.detail}</p>
+          <div className="btnArea">
+            <button className="delete">Delete</button>
+            <button className="done">Done</button>
+          </div>
+        </div>
+      );
+    });
+  }
+
   return (
     <div className="inner">
       <header>Thomas ToDoList</header>
@@ -22,36 +58,27 @@ function App() {
       <section className="workingList">
         <p className="title">Working...🔥</p>
         <div className="content">
-          <div className="workingCard">
-            <p className="title">제목</p>
-            <p className="detail">내용넣기</p>
-            <div className="btnArea">
-              <button className="delete">Delete</button>
-              <button className="done">Done</button>
-            </div>
-          </div>
-          <div className="workingCard">
-            <p className="title">제목</p>
-            <p className="detail">내용넣기</p>
-            <div className="btnArea">
-              <button className="delete">Delete</button>
-              <button className="done">Done</button>
-            </div>
-          </div>
+          {/* 내부에 map으로 돌리기 */}
+          <CardDraw list={workingList}>abc</CardDraw>
         </div>
       </section>
 
       <section className="doneList">
         <p className="title">done...🔥</p>
         <div className="content">
-          <div className="doneCard">
-            <p className="title">제목</p>
-            <p className="detail">내용넣기</p>
-            <div className="btnArea">
-              <button className="delete">Delete</button>
-              <button className="cancel">Cancel</button>
-            </div>
-          </div>
+          {/* 내부에 map으로 돌리기 */}
+          {doneList.map((item) => {
+            return (
+              <div className="doneCard" key={item.id}>
+                <p className="title">{item.subject}</p>
+                <p className="detail">{item.detail}</p>
+                <div className="btnArea">
+                  <button className="delete">Delete</button>
+                  <button className="cancel">Cancel</button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>
