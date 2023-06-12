@@ -1,68 +1,59 @@
 import { Children, useState } from "react";
 import "./App.css";
-import Btn from "./components/Button";
-import User from "./components/Users";
 
 function App() {
-  let usersOrigin = [
-    { id: 1, age: 30, name: "송중기" },
-    { id: 2, age: 24, name: "송강" },
-    { id: 3, age: 21, name: "김유정" },
-    { id: 4, age: 29, name: "구교환" },
-  ];
-
-  const [users, setUsers] = useState(usersOrigin);
-
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-
-  const nameAddHandler = (e) => {
-    setName(e.target.value);
-  };
-
-  const ageAddHandler = (e) => {
-    setAge(e.target.value);
-  };
-
-  const AddBtnHandler = (e) => {
-    const newUserTemp = {
-      id: users[users.length - 1].id + 1,
-      age,
-      name,
-    };
-
-    setUsers([...users, newUserTemp]);
-  };
-
-  const delBtnHandler = (e) => {
-    let result = window.confirm("진짜 삭제할꺼야?");
-    if (result === true) {
-      setUsers(
-        users.filter((user) => {
-          return user.id !== e;
-        })
-      );
-    }
-  };
-
   return (
-    <div>
-      <div>
-        이름 :&nbsp;
-        <input value={name} onChange={nameAddHandler}></input>
-        <br />
-        나이 :&nbsp;
-        <input value={age} onChange={ageAddHandler}></input>
-      </div>
-      <Btn AddBtnHandler={AddBtnHandler}>추가</Btn>
+    <div className="inner">
+      <header>Thomas ToDoList</header>
 
-      <div className="wrap">
-        {users.map((item) => {
-          return (
-            <User key={item.id} item={item} delBtnHandler={delBtnHandler} />
-          );
-        })}
-      </div>
+      <section className="inputArea">
+        <span>Subject</span>
+        <input type="text" className="subject" />
+        <span>detail</span>
+        <input type="text" className="detail" />
+        <button className="post">가보자고...🔥</button>
+      </section>
+
+      <section className="filterBtn">
+        <button className="working">Working...🔥</button>
+        <button className="done">done...🔥</button>
+      </section>
+
+      <section className="workingList">
+        <p className="title">Working...🔥</p>
+        <div className="content">
+          <div className="workingCard">
+            <p className="title">제목</p>
+            <p className="detail">내용넣기</p>
+            <div className="btnArea">
+              <button className="delete">Delete</button>
+              <button className="done">Done</button>
+            </div>
+          </div>
+          <div className="workingCard">
+            <p className="title">제목</p>
+            <p className="detail">내용넣기</p>
+            <div className="btnArea">
+              <button className="delete">Delete</button>
+              <button className="done">Done</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="doneList">
+        <p className="title">done...🔥</p>
+        <div className="content">
+          <div className="doneCard">
+            <p className="title">제목</p>
+            <p className="detail">내용넣기</p>
+            <div className="btnArea">
+              <button className="delete">Delete</button>
+              <button className="cancel">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
