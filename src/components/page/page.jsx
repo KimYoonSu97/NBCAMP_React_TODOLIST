@@ -1,13 +1,16 @@
-import { Children, useState } from "react";
+import { useState } from "react";
 import { WorkingListDraw } from "../List/area";
 import { InputAreaFunction } from "../input/inputAreaFunc";
 
 function Page() {
   const [workingList, setWorkingList] = useState([]);
-
+  let today = new Date();
+  today = today.toLocaleDateString();
+  console.log(today);
+  console.log(today);
   return (
     <div className="inner">
-      <header>Thomas ToDoList</header>
+      <header>Thomas ToDoList 🔥{today}🔥 </header>
 
       {/* 입력필드 및 기능 컴포넌트 */}
       <InputAreaFunction
