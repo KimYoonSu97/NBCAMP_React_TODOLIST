@@ -55,30 +55,6 @@ header {
   font-weight: 600;
 }
 
-.filterBtn {
-  margin: 20px 0 30px;
-}
-
-.filterBtn button {
-  margin-left: 50px;
-  width: 200px;
-  height: 40px;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.filterBtn .working {
-  color: white;
-  background-color: #2b663c;
-}
-
-.filterBtn .done {
-  background-color: #8bd369;
-}
-
 .workingList > .title {
   font-size: 24px;
   font-weight: 700;
@@ -97,6 +73,7 @@ header {
   height: 200px;
   background-color: #2b663c;
   border-radius: 20px;
+  position: relative;
 }
 
 .workingList .content .title {
@@ -113,13 +90,13 @@ header {
   margin: 10px 0 0 20px;
 }
 
-.workingList .content .btnArea {
+.workingList .content .workingCard .btnArea {
   position: absolute;
   bottom: 0;
 }
 
 .workingList .content .btnArea .delete,
-.workingList .content .btnArea .done {
+.workingList .content .btnArea .Done {
   width: 85px;
   height: 40px;
   border-radius: 20px;
@@ -139,13 +116,13 @@ header {
   background-color: crimson;
 }
 
-.workingList .content .btnArea .done {
+.workingList .content .btnArea .Done {
   margin-left: 10px;
   background-color: white;
   color: #2b663c;
 }
 
-.workingList .content .btnArea .done:hover {
+.workingList .content .btnArea .Done:hover {
   background-color: #8bd369;
 }
 
@@ -167,6 +144,7 @@ header {
   height: 200px;
   background-color: #8bd369;
   border-radius: 20px;
+  position: relative;
 }
 
 .doneList .content .title {
@@ -181,13 +159,13 @@ header {
   margin: 10px 0 0 20px;
 }
 
-.doneList .content .btnArea {
+.doneList .content .doneCard .btnArea {
   position: absolute;
   bottom: 0;
 }
 
 .doneList .content .btnArea .delete,
-.doneList .content .btnArea .cancel {
+.doneList .content .btnArea .Cancel {
   width: 85px;
   height: 40px;
   border-radius: 20px;
@@ -206,13 +184,13 @@ header {
   background-color: crimson;
 }
 
-.doneList .content .btnArea .cancel {
+.doneList .content .btnArea .Cancel {
   margin-left: 10px;
   background-color: white;
   color: #8bd369;
 }
 
-.doneList .content .btnArea .cancel:hover {
+.doneList .content .btnArea .Cancel:hover {
   background-color: #2b663c;
   color: white;
 }
