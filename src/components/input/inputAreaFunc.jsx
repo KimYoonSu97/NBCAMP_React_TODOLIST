@@ -22,6 +22,11 @@ const InputAreaFunction = function () {
       setWorkingList([...workingList, newWorking]);
       setDetail("");
       setSubject("");
+      //로컬스토리지 저장
+      localStorage.setItem(
+        "workingList",
+        JSON.stringify([...workingList, newWorking])
+      );
     } else {
       alert("Please.. write your...TODOList....");
       setDetail("");
