@@ -1,15 +1,16 @@
 import { useContext, useState } from "react";
 import { workingListContext } from "../../context/workingList";
 
-const InputAreaFunction = function () {
+// 인풋 영역 / 추가기능함수 등 포함
+function InputAreaFunction() {
   const { workingList, setWorkingList } = useContext(workingListContext);
-  // 추가 (subject,detail) State
 
+  // 추가 (subject,detail) State
   const [subject, setSubject] = useState("");
   const [detail, setDetail] = useState("");
 
   // 추가 버튼 클릭 함수
-  const addBtnHandler = function () {
+  const addBtnHandler = () => {
     let id =
       workingList.length === 0 ? 1 : workingList[workingList.length - 1].id + 1;
     if (subject !== "" && detail !== "") {
@@ -61,6 +62,6 @@ const InputAreaFunction = function () {
       </button>
     </section>
   );
-};
+}
 
 export { InputAreaFunction };
