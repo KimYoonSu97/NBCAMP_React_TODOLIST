@@ -6,8 +6,7 @@ function Page() {
   const [workingList, setWorkingList] = useState([]);
   let today = new Date();
   today = today.toLocaleDateString();
-  console.log(today);
-  console.log(today);
+
   return (
     <div className="inner">
       <header>Thomas ToDoList 🔥{today}🔥 </header>

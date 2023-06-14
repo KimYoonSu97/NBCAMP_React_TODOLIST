@@ -9,7 +9,6 @@ const InputAreaFunction = function ({ workingList, setWorkingList }) {
   const addBtnHandler = function () {
     let id =
       workingList.length === 0 ? 1 : workingList[workingList.length - 1].id + 1;
-    console.log(id);
     if (subject !== "" && detail !== "") {
       const newWorking = {
         id,

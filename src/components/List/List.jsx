@@ -4,18 +4,15 @@ import { SortingBtn, SortingCard } from "./accFunc";
 function DrawListCard({ workingList, setWorkingList, children }) {
   // 카드삭제 함수
   const deleteCard = function (id) {
-    setWorkingList(
-      workingList.filter((item) => {
-        return item.id !== id;
-      })
-    );
+    let newWorkingList = workingList.filter((item) => {
+      return item.id !== id;
+    });
+    setWorkingList([...newWorkingList]);
   };
 
   //카드 수정 함수
   const changeIsDoneState = function (id) {
-    console.log(id);
-    console.log(workingList);
-    let NewWorkingList = workingList.map((item) => {
+    let newWorkingList = workingList.map((item) => {
       if (item.id === id) {
         return {
           ...item,
@@ -25,7 +22,7 @@ function DrawListCard({ workingList, setWorkingList, children }) {
         return { ...item };
       }
     });
-    setWorkingList([...NewWorkingList]);
+    setWorkingList([...newWorkingList]);
   };
 
   let falseList = workingList.filter((item) => {
