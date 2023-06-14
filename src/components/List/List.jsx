@@ -7,7 +7,7 @@ function DrawListCard({ children }) {
   const { workingList, setWorkingList } = useContext(workingListContext);
 
   // 카드삭제 함수
-  const deleteCard = function (id) {
+  const deleteCard = (id) => {
     let newWorkingList = workingList.filter((item) => {
       return item.id !== id;
     });
@@ -16,7 +16,7 @@ function DrawListCard({ children }) {
   };
 
   //카드 상태 수정 함수
-  const changeIsDoneState = function (id) {
+  const changeIsDoneState = (id) => {
     let newWorkingList = workingList.map((item) => {
       if (item.id === id) {
         return {

@@ -9,9 +9,7 @@ function App() {
 
   // 첫번째 렌더링 시 데이터 가져온 후 실행안함.
   useEffect(() => {
-    console.log("useEffect 실행!");
     let listFromDB = JSON.parse(localStorage.getItem("workingList"));
-    console.log(listFromDB);
     setWorkingList(listFromDB);
   }, []);
 

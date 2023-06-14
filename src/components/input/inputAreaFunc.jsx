@@ -9,7 +9,7 @@ const InputAreaFunction = function () {
   const [detail, setDetail] = useState("");
 
   // 추가 버튼 클릭 함수
-  const addBtnHandler = function () {
+  const addBtnHandler = () => {
     let id =
       workingList.length === 0 ? 1 : workingList[workingList.length - 1].id + 1;
     if (subject !== "" && detail !== "") {
