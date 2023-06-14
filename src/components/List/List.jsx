@@ -1,4 +1,4 @@
-import { SortingBtn, SortingCard } from "./accFunc";
+import { SortingBtn, SortingCard } from "./listFunc";
 import { useContext } from "react";
 import { workingListContext } from "../../context/workingList";
 
@@ -14,7 +14,7 @@ function DrawListCard({ children }) {
     setWorkingList([...newWorkingList]);
   };
 
-  //카드 수정 함수
+  //카드 상태 수정 함수
   const changeIsDoneState = function (id) {
     let newWorkingList = workingList.map((item) => {
       if (item.id === id) {
