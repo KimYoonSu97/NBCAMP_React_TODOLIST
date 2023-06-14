@@ -1,6 +1,7 @@
 import { WorkingListDraw } from "../List/area";
 import { InputAreaFunction } from "../input/inputAreaFunc";
 
+// 투두리스트 메인 컴포넌트
 function Page() {
   let today = new Date();
   today = today.toLocaleDateString();
