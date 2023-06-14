@@ -12,6 +12,7 @@ function DrawListCard({ children }) {
       return item.id !== id;
     });
     setWorkingList([...newWorkingList]);
+    localStorage.setItem("workingList", JSON.stringify([...newWorkingList]));
   };
 
   //카드 상태 수정 함수
@@ -27,6 +28,7 @@ function DrawListCard({ children }) {
       }
     });
     setWorkingList([...newWorkingList]);
+    localStorage.setItem("workingList", JSON.stringify([...newWorkingList]));
   };
 
   let falseList = workingList.filter((item) => {
