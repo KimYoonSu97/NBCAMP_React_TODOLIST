@@ -1,7 +1,11 @@
 import { SortingBtn, SortingCard } from "./accFunc";
+import { useContext } from "react";
+import { workingListContext } from "../../context/workingList";
 
 // 내부 카드 true,false 판단하여 그리는 컴포넌트
-function DrawListCard({ workingList, setWorkingList, children }) {
+function DrawListCard({ children }) {
+  const { workingList, setWorkingList } = useContext(workingListContext);
+
   // 카드삭제 함수
   const deleteCard = function (id) {
     let newWorkingList = workingList.filter((item) => {

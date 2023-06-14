@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { workingListContext } from "../../context/workingList";
 
-const InputAreaFunction = function ({ workingList, setWorkingList }) {
+const InputAreaFunction = function () {
+  const { workingList, setWorkingList } = useContext(workingListContext);
   // 추가 (subject,detail) State
+
   const [subject, setSubject] = useState("");
   const [detail, setDetail] = useState("");
 
