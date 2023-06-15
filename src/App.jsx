@@ -10,7 +10,10 @@ function App() {
   // 첫번째 렌더링 시 데이터 가져온 후 실행안함.
   useEffect(() => {
     let listFromDB = JSON.parse(localStorage.getItem("workingList"));
-    setWorkingList(listFromDB);
+    if (listFromDB == null) {
+    } else {
+      setWorkingList(listFromDB);
+    }
   }, []);
 
   return (
